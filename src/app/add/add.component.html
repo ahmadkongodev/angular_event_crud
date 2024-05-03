@@ -1,16 +1,42 @@
 <h2 mat-dialog-title>Add new todo</h2>
 <mat-dialog-content>
   <mat-form-field>
-    <mat-label>Title</mat-label>
-    <input matInput [(ngModel)]="data.title">
+    <mat-label>name</mat-label>
+    <input matInput [(ngModel)]="data.name">
+  </mat-form-field>
+<br>
+  <!-- <mat-form-field>
+    <mat-label>Date</mat-label>
+    <input matInput [(ngModel)]="data.date">
+  </mat-form-field> -->
+  <mat-form-field>
+    <mat-label>Choose a date</mat-label>
+    <input matInput [matDatepicker]="picker" [(ngModel)]="data.date">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
 <br>
   <mat-form-field>
-    <mat-label>Description</mat-label>
-    <input matInput [(ngModel)]="data.description">
+    <mat-label>location</mat-label>
+    <input matInput [(ngModel)]="data.location">
   </mat-form-field>
-  <p><mat-slide-toggle  [(ngModel)]="data.completed">Is Completed!</mat-slide-toggle></p>
-<mat-dialog-actions>
+  <br>
+
+  <mat-form-field>
+    <mat-label>attendees</mat-label>
+    <input type="number" matInput [(ngModel)]="data.attendees">
+  </mat-form-field>
+  <br>
+
+ <mat-dialog-actions>
   <button mat-button (click)="submit()">Create</button>
-  <button mat-button [mat-dialog-close]="data.title" cdkFocusInitial>Cancel</button>
+  <button mat-button [mat-dialog-close]="data.name" cdkFocusInitial>Cancel</button>
 </mat-dialog-actions>
+
+<!-- <mat-form-field class="example-full-width">
+  <mat-label>Choose a date</mat-label>
+  <input matInput [matDatepicker]="picker">
+  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker [dateClass]="dateClass" #picker></mat-datepicker>
+</mat-form-field> -->

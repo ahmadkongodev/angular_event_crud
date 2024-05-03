@@ -1,6 +1,7 @@
 import { Component, OnInit,Inject } from '@angular/core';
-import { Todo } from '../models/even.model';
+import { Even } from '../models/even.model';
 import { TodoService } from '../even.service';
+import {provideNativeDateAdapter} from '@angular/material/core';
 
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
  
@@ -8,6 +9,8 @@ import {MatButtonModule} from '@angular/material/button';
 import {FormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+
  import { Constants } from '../constants';import {
   MatDialog,
   
@@ -21,7 +24,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 @Component({
   selector: 'app-update',
   standalone: true,
-  imports: [ 
+  providers: [provideNativeDateAdapter()],
+
+  imports: [ MatDatepickerModule,
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
@@ -37,9 +42,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 })
 export class UpdateComponent implements OnInit {
    
-  data: Todo = { completed: false };
+  data!: Even ;
   
-  constructor(private todoservice: TodoService,@Inject(MAT_DIALOG_DATA) public dataTodo: {item: Todo}, public dialogRef: MatDialogRef<UpdateComponent>, private dialog: MatDialog) {
+  constructor(private todoservice: TodoService,@Inject(MAT_DIALOG_DATA) public dataTodo: {item: Even}, public dialogRef: MatDialogRef<UpdateComponent>, private dialog: MatDialog) {
   }
   ngOnInit() {
 this.fil();

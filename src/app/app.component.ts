@@ -49,7 +49,7 @@ export interface TodoElement {
 
 export class AppComponent implements OnInit {
   datasource: TodoElement[] = [];
-  columns = ['id', 'name', 'date', 'location','attendees'];
+  columns = ['id', 'name', 'date', 'location','attendees','action'];
   title = 'todoapp';
 
   constructor(private todoservice: TodoService, private dialog: MatDialog) {

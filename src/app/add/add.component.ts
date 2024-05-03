@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,ViewEncapsulation } from '@angular/core';
 import {
   MatDialog,
   MAT_DIALOG_DATA,
@@ -8,6 +8,8 @@ import {
   MatDialogActions,
   MatDialogClose,
 } from '@angular/material/dialog';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+  import {provideNativeDateAdapter} from '@angular/material/core';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { TodoService } from '../even.service';
 
@@ -17,11 +19,14 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { Even } from '../models/even.model'
 import { Constants } from '../constants';
- 
+
+
 @Component({
   selector: 'app-todo',
   standalone: true,
-  imports: [
+  encapsulation: ViewEncapsulation.None,
+  providers: [provideNativeDateAdapter()],
+  imports: [MatFormFieldModule, MatInputModule, MatDatepickerModule,
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
@@ -30,11 +35,14 @@ import { Constants } from '../constants';
     MatDialogContent,
     MatDialogActions,
     MatDialogClose,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatFormFieldModule, MatInputModule
+    
   ],
-  templateUrl: './todo.component.html',
-  styleUrl: './todo.component.css'
+  templateUrl: './add.component.html',
+  styleUrl: './add.component.css'
 })
+
 export class AddComponent {
 
 
@@ -50,6 +58,5 @@ export class AddComponent {
   }
 
 
-
-  
 }
+
