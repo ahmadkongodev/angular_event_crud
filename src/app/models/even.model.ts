@@ -1,7 +1,7 @@
 export interface Even {
          id?: string;
         name?: string;
-        date?: string;
+        date?: Date;
         location?: string;
         attendees?: number;
            

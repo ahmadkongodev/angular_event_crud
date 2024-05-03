@@ -10,7 +10,7 @@ import {
   MatDialogActions,
   MatDialogClose,
 } from '@angular/material/dialog';
-import { TodoService } from '../todo.service';
+import { TodoService } from '../even.service';
 @Component({
   selector: 'app-confirmodal',
   standalone: true,

@@ -5,10 +5,10 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { MatTableModule} from '@angular/material/table';
-import { TodoService } from './todo.service';
+import { TodoService } from './even.service';
 import {FormsModule} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { TodoComponent } from './todo/todo.component'; 
+import { AddComponent } from './add/add.component'; 
 import { ConfirmodalComponent } from './confirmodal/confirmodal.component'; 
 
 import {
@@ -21,7 +21,7 @@ import {
   MatDialogActions,
   MatDialogClose,
 } from '@angular/material/dialog';
-import { Todo } from './models/even.model';
+import { Even } from './models/even.model';
 import { UpdateComponent } from './update/update.component';
 
 export interface TodoElement {
@@ -49,7 +49,7 @@ export interface TodoElement {
 
 export class AppComponent implements OnInit {
   datasource: TodoElement[] = [];
-  columns = ['id', 'title', 'description', 'completed','action'];
+  columns = ['id', 'name', 'date', 'location','attendees'];
   title = 'todoapp';
 
   constructor(private todoservice: TodoService, private dialog: MatDialog) {
@@ -65,7 +65,7 @@ export class AppComponent implements OnInit {
   }
 
   showModal() {
-    const dialogRef = this.dialog.open(TodoComponent);
+    const dialogRef = this.dialog.open(AddComponent);
 
     dialogRef.afterClosed().subscribe(result => {
       this.list()
@@ -80,7 +80,7 @@ export class AppComponent implements OnInit {
       this.list()
     });
   }
-  showEdit(item:Todo){
+  showEdit(item:Even){
     const dialogRef = this.dialog.open(UpdateComponent, {
       data: {item:item}
     });

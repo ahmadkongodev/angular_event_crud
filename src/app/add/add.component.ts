@@ -9,13 +9,13 @@ import {
   MatDialogClose,
 } from '@angular/material/dialog';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-import { TodoService } from '../todo.service';
+import { TodoService } from '../even.service';
 
 import {MatButtonModule} from '@angular/material/button';
 import {FormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { Todo } from '../models/even.model'
+import { Even } from '../models/even.model'
 import { Constants } from '../constants';
  
 @Component({
@@ -35,12 +35,12 @@ import { Constants } from '../constants';
   templateUrl: './todo.component.html',
   styleUrl: './todo.component.css'
 })
-export class TodoComponent {
+export class AddComponent {
 
 
-  data: Todo = {id: Constants.getUniqueId(), completed: false };
+  data: Even = {id: Constants.getUniqueId()};
   
-  constructor(private dataservice: TodoService, public dialogRef: MatDialogRef<TodoComponent>) {
+  constructor(private dataservice: TodoService, public dialogRef: MatDialogRef<AddComponent>) {
 
   }
   submit() {

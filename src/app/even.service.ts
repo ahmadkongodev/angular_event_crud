@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Constants } from './constants';
-import { Todo } from './models/even.model';
+import { Even } from './models/even.model';
 @Injectable({
   providedIn: 'root'
 })
@@ -18,7 +18,7 @@ export class TodoService {
     return item[0];
   }
 
-  private save(list: Todo[]) {
+  private save(list: Even[]) {
     localStorage.setItem(Constants.localStorageKey, JSON.stringify(list));
   }
 
@@ -37,7 +37,7 @@ export class TodoService {
   }
 
   //  
-  addTodo(item: Todo) {
+  addTodo(item: Even) {
     const json_list = localStorage.getItem(Constants.localStorageKey);
     var list = json_list ? JSON.parse(json_list) : [];
 
@@ -47,7 +47,7 @@ export class TodoService {
     return true;
   }
 
-  editTodo(item: Todo) {
+  editTodo(item: Even) {
     const json_list = localStorage.getItem(Constants.localStorageKey);
     var list = json_list ? JSON.parse(json_list) : [];
     var index = list.map((el: any) => el.id).indexOf(item.id);

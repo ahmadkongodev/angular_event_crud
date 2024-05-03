@@ -1,6 +1,6 @@
 import { Component, OnInit,Inject } from '@angular/core';
 import { Todo } from '../models/even.model';
-import { TodoService } from '../todo.service';
+import { TodoService } from '../even.service';
 
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
  
